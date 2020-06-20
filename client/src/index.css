@@ -1,0 +1,78 @@
+@import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,700);
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-image: linear-gradient(to right, #034378, #0097b6);
+  font-family: 'Open Sans', sans-serif;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  text-decoration: none !important;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+#login, #signup {
+  z-index: 1;
+  animation: login-in 0.3s cubic-bezier(0, 1.5, 0.66, 1.2) both;
+}
+#signup {
+  animation-name: signup-in;
+}
+
+#btnToggle-log:checked ~ #signup, #btnToggle-sign:checked ~ #login {
+  background: #c9dfec;
+  z-index: 0;
+  animation: signup-out 0.3s cubic-bezier(0, 1.5, 0.66, 1.2) both;
+}
+#btnToggle-log:checked ~ #signup *, #btnToggle-sign:checked ~ #login * {
+  opacity: 0;
+  pointer-events: none;
+}
+#btnToggle-sign:checked ~ #login {
+  transform: translate(-65%, -45%) scale(0.9);
+  animation-name: login-out;
+}
+
+@keyframes signup-in {
+  0% {
+      transform: translate(-35%, -45%) scale(0.8);
+ }
+  100% {
+      transform: translate(-35%, -50%) scale(1);
+ }
+}
+@keyframes signup-out {
+  0% {
+      transform: translate(-35%, -50%) scale(1);
+ }
+  100% {
+      transform: translate(-35%, -45%) scale(0.8);
+ }
+}
+@keyframes login-in {
+  0% {
+      transform: translate(-65%, -45%) scale(0.9);
+ }
+  100% {
+      transform: translate(-65%, -50%) scale(1);
+ }
+}
+@keyframes login-out {
+  0% {
+      transform: translate(-65%, -50%) scale(1);
+ }
+  100% {
+      transform: translate(-65%, -45%) scale(0.9);
+ }
+}

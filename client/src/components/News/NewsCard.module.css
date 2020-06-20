@@ -1,0 +1,77 @@
+
+ .card {
+	 padding: 0 1rem;
+	 margin-bottom: 2rem;
+	 width: 28rem;
+}
+ .card .wrapper {
+	 background-color: #fff;
+	 min-height: 540px;
+	 position: relative;
+	 overflow: hidden;
+	 box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.2);
+}
+ .card .wrapper:hover .data {
+	 transform: translateY(0);
+}
+ .card .data {
+	 position: absolute;
+	 bottom: 0;
+	 width: 100%;
+	 transform: translateY(calc(70px + 1em));
+	 transition: transform 0.3s;
+}
+ .card .data .content {
+	 padding: 1em;
+	 position: relative;
+	 z-index: 1;
+}
+ .card .author {
+	 font-size: 12px;
+}
+ .card .title {
+	 margin-top: 10px;
+}
+ .card .text {
+	 height: 70px;
+	 margin: 0;
+}
+ .card input[type='checkbox'] {
+	 display: none;
+}
+
+ .newsCard .wrapper {
+	 background-size: cover;
+	 background-position: 20% 1%;
+	 background-repeat: no-repeat;
+}
+ .newsCard .date {
+	 position: absolute;
+	 top: 0;
+	 left: 0;
+	 background-color: #77d7b9;
+	 color: #fff;
+	 padding: 0.8em;
+}
+ .newsCard .date span {
+	 display: block;
+	 text-align: center;
+}
+ .newsCard .date .day {
+	 font-weight: 700;
+	 font-size: 24px;
+	 text-shadow: 2px 3px 2px rgba(0, 0, 0, 0.18);
+}
+ .newsCard .date .month {
+	 text-transform: uppercase;
+}
+ .newsCard .date .month, .newsCard .date .year {
+	 font-size: 12px;
+}
+ .newsCard .content {
+	 background-color: #fff;
+	 box-shadow: 0 5px 30px 10px rgba(0, 0, 0, 0.3);
+}
+ .newsCard .title a {
+	 color: #808080;
+}

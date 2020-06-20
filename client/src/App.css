@@ -1,0 +1,25 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.nav-link {
+  padding: 0 !important;
+}
+
+.nav-link > a {
+  color: powderblue;
+  padding: 1rem;
+  font-family: "Open Sans", sans-serif;
+  font-weight: bold;
+  transition: all 0.5s;
+}
+
+.nav-link > a:hover {
+  background-color: #f1f1f1;
+
+}
