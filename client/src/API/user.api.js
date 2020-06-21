@@ -41,7 +41,7 @@ const GetSources = () => {
 }
 
 
-const logout = () => {
+const LogoutUser = () => {
 
     return axios.get('/logout')
         .then(res => res.data)
@@ -54,5 +54,5 @@ export {
     GetSources,
     Subscribe,
     Unsubscribe,
-    logout
+    LogoutUser
 }

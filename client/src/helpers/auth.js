@@ -1,4 +1,4 @@
-import { logout } from '../API/user.api';
+import { LogoutUser } from '../API/user.api';
 
 class Auth {
     constructor() {
@@ -12,7 +12,7 @@ class Auth {
     }
 
     logout(cb) {
-        logout().then(res => {
+        LogoutUser().then(res => {
             if (res.status === "success") cb();
             localStorage.removeItem("authenticated");
         });
