@@ -63,3 +63,7 @@
     color: #fff;
     cursor: pointer;
 }
+.inputContainer {
+    display: inline-block;
+    width: 100%;
+}

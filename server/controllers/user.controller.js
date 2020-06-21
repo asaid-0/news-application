@@ -1,13 +1,13 @@
 const { loginByEmailAndPassword, createUser, generateToken } = require('../services/user.service');
-const { ErrorHandler } = require('../helpers/error');
+// const { ErrorHandler } = require('../helpers/error');
 
 const register = async (req, res) => {
     try {
         const user = await createUser(req.body);
         const token = generateToken(user);
-        res.status(201).send({ userId: user._id, sources: user.sources, email: user.email, token });
+        res.cookie('jwtToken', `Bearer ${token}`, { httpOnly: true, sameSite: "Strict", path: "/" }).status(201).send({ userId: user._id, sources: user.sources, email: user.email });
     } catch (error) {
-        throw new ErrorHandler(409, error);
+        throw  error;
     }
 };
 
@@ -16,9 +16,9 @@ const login = async (req, res) => {
     try {
         const user = await loginByEmailAndPassword(email, password);
         const token = generateToken(user);
-        res.status(200).send({ userId: user._id, sources: user.sources, email: user.email, token });
+        res.cookie('jwtToken', `Bearer ${token}`, { httpOnly: true, sameSite: "Strict", path: "/" }).status(200).send({ userId: user._id, sources: user.sources, email: user.email });
     } catch (error) {
-        throw new ErrorHandler(401, error);
+        throw error;
     }
 };
 

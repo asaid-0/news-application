@@ -3,6 +3,6 @@ const userNews = require('../../controllers/news.controller');
 
 const router = express.Router();
 
-router.get('/', userNews);
+router.get('/:page', userNews);
 
 module.exports = router;

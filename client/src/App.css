@@ -7,11 +7,15 @@
   pointer-events: none;
 }
 
-.nav-link {
+.navbar {
   padding: 0 !important;
 }
 
-.nav-link > a {
+.navbar-brand {
+  padding-left: 1rem;
+}
+
+.navbar-nav > a {
   color: powderblue;
   padding: 1rem;
   font-family: "Open Sans", sans-serif;
@@ -19,7 +23,7 @@
   transition: all 0.5s;
 }
 
-.nav-link > a:hover {
+.navbar-nav > a:hover {
   background-color: #f1f1f1;
 
 }

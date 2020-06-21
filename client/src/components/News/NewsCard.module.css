@@ -73,5 +73,6 @@
 	 box-shadow: 0 5px 30px 10px rgba(0, 0, 0, 0.3);
 }
  .newsCard .title a {
-	 color: #808080;
+	word-wrap: break-word;
+	color: #808080;
 }

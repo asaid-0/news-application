@@ -6,7 +6,10 @@ const { ErrorHandler } = require('../helpers/error');
 const getAllSources = async (req, res) => {
     try {
         const data = await getSources();
-        res.status(200).send(data);
+        const user = await User.findById(req.currentUser.userId);
+        const userSources = user.sources;
+        // append user sources to original response
+        res.status(200).send({ ...data, userSources });
     } catch (error) {
         throw new ErrorHandler(500, "Failed to retrieve all sources");
     }

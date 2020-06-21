@@ -2,7 +2,7 @@ const { verifyToken } = require('../services/user.service');
 const { ErrorHandler } = require('../helpers/error');
 
 const auth = async (req, res, next) => {
-    const token = req.headers.authorization;
+    const token = req.cookies.jwtToken;
     if (token) {
         const userPayload = await verifyToken(token.split(" ")[1]);
         if (userPayload) {

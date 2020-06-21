@@ -17,7 +17,7 @@ const createUser = async (newUser) => {
         const user = await User.create(newUser);
         return user;
     } catch (error) {
-        throw error.errors;
+        throw new ErrorHandler(400, error.errors);
     }
 };
 
@@ -71,7 +71,7 @@ const verifyToken = async (token) => {
         const payload = jwt.verify(token, secret);
         return payload;
     } catch (error) {
-        throw new ErrorHandler(401, 'Unauthorized');
+        throw new ErrorHandler(401, 'Invalid Token');
     }
 };
 

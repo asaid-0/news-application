@@ -18,12 +18,12 @@ const getSources = async () => {
     }
 }
 
-const getNews = async (sources) => {
+const getNews = async (sources, page) => {
     const sourcesList = sources.join(",");
-    const params = { sources: sourcesList };
+    const params = { sources: sourcesList, page };
     try {
         // const result = await newsAxios.get('/everything', { params });
-        const result = await cache.get(sourcesList, async () => {
+        const result = await cache.get(`${sourcesList}_page_${page}`, async () => {
             const response = await newsAxios.get('/everything', { params });
             // get data from the response object
             return response.data;

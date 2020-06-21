@@ -8,19 +8,26 @@ const express = require('express');
 const cors = require('cors');
 const mongoSanitizer = require('express-mongo-sanitize');
 const xssSanitizer = require('xss-clean');
+const cookieParser = require('cookie-parser');
+const csrf = require('csurf');
 require('express-async-errors');
 
 const routes = require('./routes/v1');
 const { handleError, ErrorHandler } = require('./helpers/error');
 
+const csrfProtection = csrf({
+    cookie: true
+});
 
 
 require('./config/database');
 
 const app = express();
 
+
+
 // enable cors
-app.use(cors());
+app.use(cors({ origin: 'http://localhost:3000', credentials: true }));
 
 // sanitize requests from mongo malicious queries
 app.use(mongoSanitizer());
@@ -29,9 +36,21 @@ app.use(mongoSanitizer());
 app.use(xssSanitizer());
 
 app.use(express.json())
+app.use(cookieParser());
+
 
 // v1 routes
 app.use('/v1', routes);
+
+
+
+// use csrf middle ware
+// app.use(csrfProtection);
+
+// csrf token issuer
+app.get('/v1/csrf-token', (req, res) => {
+    res.json({ csrfToken: req.csrfToken() });
+});
 
 // Error handler middleware
 app.use((err, req, res, next) => {

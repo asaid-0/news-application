@@ -7,7 +7,7 @@ class Auth {
         // TODO: check if user authenticated from localStorage flag
         // P.S. JWT token will be stored in cookies for more security 
         // will add cookie security options like HttpOnly, and SameSite 
-
+        
         localStorage.setItem("authenticated", true);
         this.authenticated = true;
         cb();
@@ -15,7 +15,6 @@ class Auth {
 
     logout(cb) {
         localStorage.removeItem("authenticated");
-        this.authenticated = false;
         cb();
     }
 
