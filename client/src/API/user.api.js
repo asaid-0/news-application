@@ -41,11 +41,18 @@ const GetSources = () => {
 }
 
 
+const logout = () => {
+
+    return axios.get('/logout')
+        .then(res => res.data)
+}
+
 export {
     UserLogin,
     CreateUser,
     GetNews,
     GetSources,
     Subscribe,
-    Unsubscribe
+    Unsubscribe,
+    logout
 }
