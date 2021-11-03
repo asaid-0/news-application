@@ -27,7 +27,7 @@
     "mongoose": "^5.9.19",
     "node-cache": "^5.1.1",
     "simpl-schema": "^1.7.3",
-    "validator": "^13.1.1",
+    "validator": "^13.7.0",
     "xss-clean": "^0.1.1"
   },
   "devDependencies": {
